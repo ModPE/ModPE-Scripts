@@ -15,11 +15,15 @@ Item.addCraftRecipe(503, 1, 0, [280, 1, 0, 20, 2, 0]);
 ModPE.setItem(504,"stick",0,"Riding Stick ");
 Item.addCraftRecipe(504, 1, 0, [280, 1, 0, 352, 2, 0]);
 
+ModPE.setItem(505,"stick",0,"Support Stick ");
+Item.addCraftRecipe(505, 1, 0, [280, 1, 0, 297, 2, 0]);
+
+
 function useItem(x,y,z,itemId,blockId,side){
 
   if (itemId==503){
 
-    Entity.setRenderType(Player, 0);
+    Entity.setRenderType(attacker, 0);
     clientMessage("Toggled Invisibility");
 
   }
@@ -43,6 +47,11 @@ function attackHook(attacker,victim){
 
     Entity.setHealth(victim, Entity.getHealth(victim) - 2);
     Entity.setHealth(attacker, Entity.getHealth(attacker) + 2);
+    }
+
+    else if(getCarriedItem()==505){
+
+    Entity.setHealth(victim, Entity.getHealth(victim) 100);
     }
 
     else if(getCarriedItem()==504){
