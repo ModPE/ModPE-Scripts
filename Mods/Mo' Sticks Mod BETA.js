@@ -9,7 +9,7 @@ function attackHook(attacker,victim){
 
   if(getCarriedItem()==501){
 
-    Entity.setFireTicks(entity, 200);
+    Entity.setFireTicks(victim, 200);
   }
     
     else if(getCarriedItem()==500){
