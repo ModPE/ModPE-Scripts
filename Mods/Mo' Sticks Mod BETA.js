@@ -19,7 +19,7 @@ function useItem(x,y,z,itemId,blockId,side){
 
   if (itemId==503){
 
-    Entity.setRenderType(attacker, 0);
+    Entity.setRenderType(Player, 0);
     clientMessage("Toggled Invisibility");
 
   }
