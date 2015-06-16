@@ -51,7 +51,7 @@ function attackHook(attacker,victim){
 
     else if(getCarriedItem()==505){
 
-    Entity.setHealth(victim, Entity.getHealth(victim) 100);
+    Entity.setHealth(victim, Entity.getHealth(victim) + 50);
     }
 
     else if(getCarriedItem()==504){
