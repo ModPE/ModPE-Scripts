@@ -18,8 +18,8 @@ function attackHook(attacker,victim){
 
   if(getCarriedItem()==501){
 
-    setVelY(victim, 100);
-    preventDefault();
+    Entity.setFireTicks(entity, 200);
 
 }
 }
+
