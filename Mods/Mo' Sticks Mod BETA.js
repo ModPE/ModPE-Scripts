@@ -1,25 +1,6 @@
 //Mo' Sticks Mod by DragonSteve142(ModPE)
 //Flaming Stick is "Fire Aspect" but Igniting is Setting On Fire
 
-var c = 0;
-var r = 0;
-var m = 0;
-var w = 0;
-var g = 0;
-var f = 0;
-var j = 0;
-var v = 0;
-var p = 0;
-var q = 0;
-var u = 0;
-var t = 0;
-var o = 0;
-var e = 0;
-var m = 0;
-var d = 0;
-var h = 0;
-var i = 0;
-
 ModPE.setItem(500,"stick",0,"Victim Flinging Stick ");
 ModPE.setItem(501,"stick",0,"Flaming Stick ");
 ModPE.setItem(502,"stick",0,"Vampiric Stick ");
@@ -44,8 +25,8 @@ function useItem(x,y,z,itemId,blockId,side){
 
   if (itemId==503){
 
-    Entity.setRenderType(attacker, 0);
-    clientMessage("Toggled Invisibility");
+    Entity.setRenderType(Player, 0);
+    clientMessage("You are now invisible! Relog to reverse the effects!");
 
   }
 
