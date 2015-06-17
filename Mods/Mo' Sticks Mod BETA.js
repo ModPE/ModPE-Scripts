@@ -1,6 +1,11 @@
 //Mo' Sticks Mod by DragonSteve142(ModPE)
 //Flaming Stick is "Fire Aspect" but Igniting is Setting On Fire
 
+var soundBH = Level.playSound(getPlayerX(),getPlayerY(),getPlayerZ(),"random.bowhit",10,2);
+var soundE = Level.playSound(getPlayerX(),getPlayerY(),getPlayerZ(),"random.explode",10,2);
+var soundCN = Level.playSound(getPlayerX(),getPlayerY(),getPlayerZ(),"mob,creeper",10,2);
+var soundI = Level.playSound(getPlayerX(),getPlayerY(),getPlayerZ(),"random.ignite",10,2);
+
 ModPE.setItem(500,"stick",0,"Victim Flinging Stick ");
 ModPE.setItem(501,"stick",0,"Flaming Stick ");
 ModPE.setItem(502,"stick",0,"Vampiric Stick ");
@@ -31,18 +36,21 @@ function useItem(x,y,z,itemId,blockId,side){
     Entity.setRenderType(Player, 0);
 
     clientMessage("You are now invisible! Relog to reverse the effects!");
+    soundBH
 
   }
 
   else if(getCarriedItem()==506){
 
 		setTile (x, y, z, 60);
+    soundBH
 
   }
 
   else if(getCarriedItem()==507){
 
 		setTile (x, y+1, z, 51);
+    soundI
 
 }
 }
@@ -52,39 +60,51 @@ function attackHook(attacker,victim){
   if(getCarriedItem()==501){
 
     Entity.setFireTicks(victim, 200);
+    soundI
+
   }
 
     else if(getCarriedItem()==500){
 
     setVelY(victim, 2);
     preventDefault();
+    soundI
+
     }
 
     else if(getCarriedItem()==502){
 
     Entity.setHealth(victim, Entity.getHealth(victim) - 2);
     Entity.setHealth(attacker, Entity.getHealth(attacker) + 2);
+    soundCN
+
     }
 
     else if(getCarriedItem()==505){
 
     Entity.setHealth(victim, Entity.getHealth(victim) + 100);
+    soundBH
+
     }
 
     else if(getCarriedItem()==504){
 
       rideAnimal (getPlayerEnt(), victim);
+      soundBH
+
       }
 
       else if(getCarriedItem()==508){
 
         Entity.remove(victim);
+        soundE
 
       }
 
         else if(getCarriedItem()==508){
 
           function setPosition(victim,x,y-3,z);
+          soundE
 
 }
 }
