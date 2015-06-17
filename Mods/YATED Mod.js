@@ -1,4 +1,4 @@
-//YATED Mod (You Are The EnderDragon Mod)
+//YATED Mod (You Are The EnderDragon Mod) by DragonSteve142(ModPE)
 function newLevel(){
 
   clientMessage(ChatColor.GOLD + "YATED Mod Activated");
