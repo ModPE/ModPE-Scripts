@@ -15,7 +15,6 @@ ModPE.setItem(505,"stick",0,"Support Stick ");
 ModPE.setItem(506,"stick",0,"Makeshift Hoe");
 ModPE.setItem(507,"stick",0,"Igniting Stick");
 ModPE.setItem(508,"stick",0,"Banishing Stick");
-ModPE.setItem(509,"stick",0,"Suffocation Stick");
 
 Item.addCraftRecipe(500, 1, 0,[280, 1 ,0, 288, 2, 0]);
 Item.addCraftRecipe(501, 1, 0,[280, 1 ,0, 318, 2, 0]);
@@ -26,8 +25,6 @@ Item.addCraftRecipe(505, 1, 0,[280, 1 ,0, 297, 2, 0]);
 Item.addCraftRecipe(506, 1, 0,[280, 1 ,0, 3, 8, 0]);
 Item.addCraftRecipe(507, 1, 0,[280, 1 ,0, 263, 2, 0]);
 Item.addCraftRecipe(508, 1, 0,[280, 1 ,0, 57, 5, 0]);
-Item.addCraftRecipe(509, 1, 0,[280, 1 ,0, 289, 2, 0]);
-
 
 function useItem(x,y,z,itemId,blockId,side){
 
@@ -36,21 +33,21 @@ function useItem(x,y,z,itemId,blockId,side){
     Entity.setRenderType(Player, 0);
 
     clientMessage("You are now invisible! Relog to reverse the effects!");
-    soundBH
+    Level.playSound(getPlayerX(),getPlayerY(),getPlayerZ(),"random.bowhit",10,2);
 
   }
 
   else if(getCarriedItem()==506){
 
 		setTile (x, y, z, 60);
-    soundBH
+    Level.playSound(getPlayerX(),getPlayerY(),getPlayerZ(),"random.bowhit",10,2);
 
   }
 
   else if(getCarriedItem()==507){
 
 		setTile (x, y+1, z, 51);
-    soundI
+    Level.playSound(getPlayerX(),getPlayerY(),getPlayerZ(),"random.ignite",10,2);
 
 }
 }
@@ -60,7 +57,7 @@ function attackHook(attacker,victim){
   if(getCarriedItem()==501){
 
     Entity.setFireTicks(victim, 200);
-    soundI
+    Level.playSound(getPlayerX(),getPlayerY(),getPlayerZ(),"random.ignite",10,2);
 
   }
 
@@ -68,7 +65,7 @@ function attackHook(attacker,victim){
 
     setVelY(victim, 2);
     preventDefault();
-    soundI
+    Level.playSound(getPlayerX(),getPlayerY(),getPlayerZ(),"random.ignite",10,2);
 
     }
 
@@ -76,35 +73,28 @@ function attackHook(attacker,victim){
 
     Entity.setHealth(victim, Entity.getHealth(victim) - 2);
     Entity.setHealth(attacker, Entity.getHealth(attacker) + 2);
-    soundCN
+    Level.playSound(getPlayerX(),getPlayerY(),getPlayerZ(),"mob,creeper",10,2);
 
     }
 
     else if(getCarriedItem()==505){
 
     Entity.setHealth(victim, Entity.getHealth(victim) + 100);
-    soundBH
+    Level.playSound(getPlayerX(),getPlayerY(),getPlayerZ(),"random.bowhit",10,2);
 
     }
 
     else if(getCarriedItem()==504){
 
       rideAnimal (getPlayerEnt(), victim);
-      soundBH
+      Level.playSound(getPlayerX(),getPlayerY(),getPlayerZ(),"random.bowhit",10,2);
 
       }
 
       else if(getCarriedItem()==508){
 
         Entity.remove(victim);
-        soundE
-
-      }
-
-        else if(getCarriedItem()==508){
-
-          function setPosition(victim,x,y-3,z);
-          soundE
+        Level.playSound(getPlayerX(),getPlayerY(),getPlayerZ(),"random.explode",10,2);
 
 }
 }
