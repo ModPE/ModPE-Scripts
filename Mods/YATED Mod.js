@@ -3,7 +3,7 @@ function newLevel(){
 
   clientMessage(ChatColor.GOLD + "YATED Mod Activated");
   clientMessage(ChatColor.GOLD + "If you die, relog to get your fang and flinger back!");
-  setPlayerHealth(200);
+  Player.setHealth(200);
   addItemInventory(511,1,0);
   addItemInventory(510,1,0);
   Player.setCanFly(1);
