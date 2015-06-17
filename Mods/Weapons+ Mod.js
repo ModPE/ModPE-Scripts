@@ -5,7 +5,6 @@ var soundExplode = Level.playSoundEnt(Player, "random.explode", 1, 1);
 var soundFizz = Level.playSoundEnt(Player, "fizz", 1, 1);
 
 ModPE.setItem(511, "sword", 4, "Sword of Justice" );
-ModPE.setItem(510, "axe", 4, "The Ban Hammer" );
 ModPE.setItem(509, "paper", 0, "Friend Healer" );
 ModPE.setItem(512, "pickaxe", 2, "Pocket Crafter" );
 ModPE.setItem(508, "coal", 0, "Pocket Smelter" );
@@ -28,16 +27,6 @@ function attackHook(attacker, victim){
     var dmgfsoj = 10;
 
     Entity.setHealth(victim, Entity.getHealth(victim) - dmgfsoj);
-
-}
-
- else if(Player.getCarriedItem() == 510){
-
-    var dmgftbh = 999999;
-
-    Entity.setHealth(victim, Entity.getHealth(victim) - dmgftbh);
-
-    soundExplode;
 
 }
 
@@ -66,7 +55,6 @@ setRot(getPlayerEnt(),270,70);
 clientMessage(ChatColor.GOLD + "Here Is The Furnace You Needed!");
 setRot(getPlayerEnt(),270,70);
   soundExplode;
-  }
   }
  
  else if(itemId == 507){
