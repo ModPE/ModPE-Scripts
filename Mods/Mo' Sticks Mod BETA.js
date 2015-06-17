@@ -10,6 +10,7 @@ ModPE.setItem(505,"stick",0,"Support Stick ");
 ModPE.setItem(506,"stick",0,"Makeshift Hoe");
 ModPE.setItem(507,"stick",0,"Igniting Stick");
 ModPE.setItem(508,"stick",0,"Banishing Stick");
+ModPE.setItem(509,"stick",0,"Explosive Stick");
 
 Item.addCraftRecipe(500, 1, 0,[280, 1 ,0, 288, 2, 0]);
 Item.addCraftRecipe(501, 1, 0,[280, 1 ,0, 318, 2, 0]);
@@ -20,23 +21,34 @@ Item.addCraftRecipe(505, 1, 0,[280, 1 ,0, 297, 2, 0]);
 Item.addCraftRecipe(506, 1, 0,[280, 1 ,0, 3, 8, 0]);
 Item.addCraftRecipe(507, 1, 0,[280, 1 ,0, 263, 2, 0]);
 Item.addCraftRecipe(508, 1, 0,[280, 1 ,0, 57, 5, 0]);
+Item.addCraftRecipe(509, 1, 0,[280, 1 ,0, 289, 2, 0]);
+
 
 function useItem(x,y,z,itemId,blockId,side){
 
   if (itemId==503){
 
     Entity.setRenderType(Player, 0);
+
     clientMessage("You are now invisible! Relog to reverse the effects!");
 
   }
 
   else if(getCarriedItem()==506){
+
 		setTile (x, y, z, 60);
 
   }
 
   else if(getCarriedItem()==507){
+
 		setTile (x, y+1, z, 51);
+
+  }
+
+  else if(getCarriedItem()==507){
+
+    function explode(x, y, z, 1)
 
 }
 }
