@@ -1,14 +1,18 @@
 //YATED Mod (You Are The EnderDragon Mod)
 function newLevel(){
 
-  clientMessage("YATED Mod Activated");
+  clientMessage(ChatColor.GOLD + "YATED Mod Activated");
+  clientMessage(ChatColor.GOLD + "If you die, relog to get your fang and flinger back!");
   setPlayerHealth(200);
   addItemInventory(511,1,0);
+  addItemInventory(510,1,0);
   Player.setCanFly(1);
 
 }
 
 ModPE.setItem(511,"sword",2,"EnderDragon Fang");
+ModPE.setItem(510,"sword",2,"EnderDragon Flinger");
+
 
 
 function attackHook(attacker,victim){
@@ -18,11 +22,16 @@ Entity.setHealth(victim, Entity.getHealth(victim) - 9);
 
 }
 
-function deathHook(Player) {
+else if(getCarriedItem()==510){
 
-  setPlayerHealth(200);
-  addItemInventory(511,1,0);
-  Player.setCanFly(1);
+setVelY(victim, 2);
+preventDefault();
 
-    }
+}
+}
+
+function deathHook(Player){
+
+  clientMessage(ChatColor.GOLD + "You died! Relog to become the EnderDragon again!");
+
 }
