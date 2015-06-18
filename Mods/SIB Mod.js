@@ -1,6 +1,5 @@
 //Secret Items & Blocks Mod by DragonSteve142(ModPE)
 Block.defineBlock(137, "Command Block", [["command_block", 0], ["command_block", 0], ["command_block", 0], ["command_block", 0], ["command_block", 0], ["command_block", 0]]);
-Block.defineBlock(95, "Invisible Bedrock", [[air, 0], [air, 0], [air, 0], [air, 0], [air, 0], [air, 0]]);
 
 Player.addItemCreativeInv(137,1,0);
 Player.addItemCreativeInv(95,1,0);
