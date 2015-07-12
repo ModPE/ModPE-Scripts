@@ -1,6 +1,7 @@
 //Rider Mod by DragonSteve142(ModPE)
 var rr = 0;
 var pbr = 0;
+var fr = 0;
 var cmd = cmd.split(" ");
 
 function procCmd(cmd){
@@ -53,12 +54,35 @@ else if(cmd[0] == "piggybacker" && pbr === 0){
 
 }
 
+else if(cmd[0] == "flr" && fr === 1){
+
+    fr--;
+
+}
+
+else if(cmd[0] == "flr" && fr === 0){
+
+    fr++;
+
+}
+
+else if(cmd[0] == "flingride" && fr === 1){
+
+    fr--;
+
+}
+
+else if(cmd[0] == "flingride" && fr === 0){
+
+    fr++;
+
+}
+
 else if(cmd[0] == "help" && rp === 0){
 
-    clientMessage("1. /rr - Toggles rider mode");
-    clientMessage("2. /rider - Toggles rider mode");
-    clientMessage("3. /pb - Toggles piggybacker mode");
-    clientMessage("4. /piggybacker - Toggles piggybacker mode");
+    clientMessage("1. /rr or /rider - Toggles rider mode");
+    clientMessage("2. /pb or /piggybacker - Toggles piggybacker mode");
+    clientMessage("3. /flr or /flingride - Toggles fling ride mode");
 
 }
 
@@ -73,4 +97,11 @@ function attackHook(attacker, victim){
         rideAnimal(victim, attacker);
 
     }
+
+    else if(fr === 1){
+    rideAnimal(attacker, victim);
+    setVelY(victim, 10);
+
+}
+
 }
